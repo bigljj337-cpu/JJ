@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장애인 등에 대한 특수교육법 (제1조~제17조) 빈칸 채우기</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>장특법(제1조~제17조) 빈칸 학습</h1>
+            <div class="header-actions">
+                <button id="print-btn" class="btn secondary">페이지 인쇄</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- 퀴즈 모드 -->
+            <section id="quiz-section">
+                <div id="questions-container">
+                    <!-- 문제들이 여기에 동적으로 렌더링됩니다 -->
+                </div>
+                <div class="pagination">
+                    <button id="prev-btn" class="btn secondary" style="display: none;">이전</button>
+                    <button id="next-btn" class="btn primary">다음</button>
+                    <button id="submit-btn" class="btn success" style="display: none;">채점하기</button>
+                </div>
+            </section>
+
+            <!-- 결과 및 오답노트 모드 -->
+            <section id="result-section" style="display: none;">
+                <div class="result-header">
+                    <h2>채점 결과</h2>
+                    <p id="score-text">총 17문제 중 0문제 정답!</p>
+                </div>
+                
+                <div id="wrong-answers-container">
+                    <h3>오답 노트</h3>
+                    <p class="subtitle">틀린 문제를 다시 풀어보세요.</p>
+                    <div id="review-questions-container">
+                        <!-- 틀린 문제들이 여기에 렌더링됩니다 -->
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button id="retry-wrong-btn" class="btn primary">오답 다시 채점하기</button>
+                    <button id="restart-btn" class="btn secondary">처음부터 다시 풀기</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

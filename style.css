@@ -1,0 +1,222 @@
+:root {
+    --primary-color: #4a6fa5;
+    --primary-hover: #3b5a86;
+    --success-color: #2e8b57;
+    --danger-color: #d9534f;
+    --background-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --border-color: #e0e4e8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.btn.primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn.primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn.secondary {
+    background-color: #e2e8f0;
+    color: #4a5568;
+}
+
+.btn.secondary:hover {
+    background-color: #cbd5e0;
+}
+
+.btn.success {
+    background-color: var(--success-color);
+    color: white;
+}
+
+/* 문제 카드 스타일 */
+.question-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--primary-color);
+}
+
+.question-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.question-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+}
+
+/* 빈칸 입력 필드 */
+.blank-input {
+    border: none;
+    border-bottom: 2px solid var(--border-color);
+    background-color: #f8fafc;
+    padding: 5px 10px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    text-align: center;
+    width: 150px;
+    margin: 0 5px;
+    transition: border-color 0.3s;
+    outline: none;
+}
+
+.blank-input:focus {
+    border-bottom-color: var(--primary-color);
+    background-color: #eef2f6;
+}
+
+/* 채점 피드백 스타일 */
+.blank-input.correct {
+    border-bottom-color: var(--success-color);
+    background-color: rgba(46, 139, 87, 0.1);
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.blank-input.incorrect {
+    border-bottom-color: var(--danger-color);
+    background-color: rgba(217, 83, 79, 0.1);
+    color: var(--danger-color);
+}
+
+/* 랜덤으로 빈칸 지정되지 않은 핵심 단어 (일반 텍스트와 동일하게 표시) */
+.highlight-text {
+    font-weight: normal;
+    color: inherit;
+}
+
+/* 오답 노트 내 정답 표시 */
+.correct-answer-hint {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--danger-color);
+    margin-top: 5px;
+}
+
+.pagination, .result-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+/* 결과 섹션 */
+.result-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.result-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+#score-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+/* 인쇄 스타일 */
+@media print {
+    body {
+        background-color: white;
+    }
+    
+    .app-container {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+    }
+
+    .btn, .pagination, .result-actions {
+        display: none !important;
+    }
+
+    .question-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+        page-break-inside: avoid;
+        margin-bottom: 15px;
+    }
+
+    .blank-input {
+        border-bottom: 1px solid #000;
+        background: transparent;
+    }
+
+    header {
+        border-bottom: 2px solid #000;
+    }
+
+    h1 {
+        color: #000;
+    }
+}
